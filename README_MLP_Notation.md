@@ -56,45 +56,45 @@ Where:
 
 Suppose the dataset is:
 
-$$
-X \in \mathbb{R}^{m \times n}
-$$
+```
+X ∈ R^(m × n)
+```
 
 Where:
 
-- $m$ = number of rows / training examples
-- $n$ = number of input features
+- `m` = number of rows / training examples
+- `n` = number of input features
 
 For this example:
 
-$$
+```
 n = 4
-$$
+```
 
 So each sample contains four features.
 
 A single row/sample can be denoted as:
 
-$$
+```
 x_i
-$$
+```
 
 and its individual features can be written as:
 
-$$
-x_{i1}, x_{i2}, x_{i3}, x_{i4}
-$$
+```
+x_i1, x_i2, x_i3, x_i4
+```
 
 Here:
 
-- $i$ = sample number
-- $1,2,3,4$ = feature number
+- `i` = sample number
+- `1,2,3,4` = feature number
 
 Example:
 
-$$
-x_i = [x_{i1},x_{i2},x_{i3},x_{i4}]
-$$
+```
+x_i = [x_i1, x_i2, x_i3, x_i4]
+```
 
 ---
 
@@ -102,54 +102,34 @@ $$
 
 The values learned during training are mainly:
 
-$$
-\boxed{\text{Weights + Biases}}
-$$
+> **Weights + Biases**
 
 The input values themselves are **not trainable parameters**.
 
 For a fully connected layer:
 
-$$
-\text{No. of weights}
-=
-(\text{neurons in previous layer})
-\times
-(\text{neurons in current layer})
-$$
+```
+No. of weights = (neurons in previous layer) × (neurons in current layer)
+```
 
 and:
 
-$$
-\text{No. of biases}
-=
-\text{neurons in current layer}
-$$
+```
+No. of biases = neurons in current layer
+```
 
 Therefore:
 
-$$
-\boxed{
-\text{Parameters in layer}
-=
-n_{l-1}n_l+n_l
-}
-$$
+> **Parameters in layer = n_(l-1) × n_l + n_l**
 
 or equivalently:
 
-$$
-\boxed{
-\text{Parameters}
-=
-(n_{l-1}+1)n_l
-}
-$$
+> **Parameters = (n_(l-1) + 1) × n_l**
 
 where:
 
-- $n_{l-1}$ = number of neurons in the previous layer
-- $n_l$ = number of neurons in the current layer
+- `n_(l-1)` = number of neurons in the previous layer
+- `n_l` = number of neurons in the current layer
 
 ---
 
@@ -166,23 +146,23 @@ Every input connects to every neuron.
 
 ### Weights
 
-$$
-4 \times 3 = 12
-$$
+```
+4 × 3 = 12
+```
 
 ### Biases
 
 Each neuron in Hidden Layer 1 has one bias:
 
-$$
+```
 3
-$$
+```
 
 ### Total
 
-$$
-12+3=\boxed{15}
-$$
+```
+12 + 3 = 15
+```
 
 ---
 
@@ -195,21 +175,21 @@ There are:
 
 ### Weights
 
-$$
-3 \times 2 = 6
-$$
+```
+3 × 2 = 6
+```
 
 ### Biases
 
-$$
+```
 2
-$$
+```
 
 ### Total
 
-$$
-6+2=\boxed{8}
-$$
+```
+6 + 2 = 8
+```
 
 ---
 
@@ -222,21 +202,21 @@ There are:
 
 ### Weights
 
-$$
-2 \times 1 = 2
-$$
+```
+2 × 1 = 2
+```
 
 ### Biases
 
-$$
+```
 1
-$$
+```
 
 ### Total
 
-$$
-2+1=\boxed{3}
-$$
+```
+2 + 1 = 3
+```
 
 ---
 
@@ -244,15 +224,13 @@ $$
 
 Adding all layers:
 
-$$
-15+8+3=26
-$$
+```
+15 + 8 + 3 = 26
+```
 
 Therefore:
 
-$$
-\boxed{\text{Total trainable parameters}=26}
-$$
+> **Total trainable parameters = 26**
 
 Breakdown:
 
@@ -265,9 +243,7 @@ Breakdown:
 
 So the network contains:
 
-$$
-\boxed{20\text{ weights}+6\text{ biases}=26}
-$$
+> **20 weights + 6 biases = 26**
 
 ---
 
@@ -282,9 +258,7 @@ When the network is trained:
 
 So for this architecture, gradients are required for all:
 
-$$
-\boxed{26\text{ trainable parameters}}
-$$
+> **26 trainable parameters**
 
 Backpropagation does not randomly search for 26 values. It efficiently computes how each parameter contributes to the loss using the **chain rule**.
 
@@ -294,21 +268,12 @@ Backpropagation does not randomly search for 26 values. It efficiently computes 
 
 A very common convention is:
 
-$$
-L_0 = \text{input layer}
-$$
-
-$$
-L_1 = \text{first hidden layer}
-$$
-
-$$
-L_2 = \text{second hidden layer}
-$$
-
-$$
-L_3 = \text{output layer}
-$$
+```
+L0 = input layer
+L1 = first hidden layer
+L2 = second hidden layer
+L3 = output layer
+```
 
 For this network:
 
@@ -321,43 +286,38 @@ L0       L1       L2       L3
 
 # 9. Bias notation
 
-A clean notation for the bias of neuron $j$ in layer $l$ is:
+A clean notation for the bias of neuron `j` in layer `l` is:
 
-$$
-\boxed{b_j^{[l]}}
-$$
+> **b[l]_j**
 
 Where:
 
-- $l$ = layer number
-- $j$ = neuron/node number inside that layer
+- `l` = layer number
+- `j` = neuron/node number inside that layer
 
 For Hidden Layer 1:
 
-$$
-b_1^{[1]},\quad
-b_2^{[1]},\quad
-b_3^{[1]}
-$$
+```
+b[1]_1,  b[1]_2,  b[1]_3
+```
 
 For Hidden Layer 2:
 
-$$
-b_1^{[2]},\quad
-b_2^{[2]}
-$$
+```
+b[2]_1,  b[2]_2
+```
 
 For the output layer:
 
-$$
-b_1^{[3]}
-$$
+```
+b[3]_1
+```
 
 ### Meaning
 
-$$
-b_2^{[1]}
-$$
+```
+b[1]_2
+```
 
 means:
 
@@ -369,38 +329,33 @@ means:
 
 A neuron's output is commonly written as:
 
-$$
-\boxed{a_j^{[l]}}
-$$
+> **a[l]_j**
 
 Some notes or lectures may use:
 
-$$
-o_j^{[l]}
-$$
+```
+o[l]_j
+```
 
-Both can represent the output of a neuron, but $a$ is especially common because it means **activation**.
+Both can represent the output of a neuron, but `a` is especially common because it means **activation**.
 
 For Hidden Layer 1:
 
-$$
-a_1^{[1]},\quad
-a_2^{[1]},\quad
-a_3^{[1]}
-$$
+```
+a[1]_1,  a[1]_2,  a[1]_3
+```
 
 For Hidden Layer 2:
 
-$$
-a_1^{[2]},\quad
-a_2^{[2]}
-$$
+```
+a[2]_1,  a[2]_2
+```
 
 Output layer:
 
-$$
-a_1^{[3]}=\hat{y}
-$$
+```
+a[3]_1 = ŷ
+```
 
 A key idea is:
 
@@ -418,37 +373,35 @@ A weight needs to tell us three things:
 
 A widely used notation is:
 
-$$
-\boxed{W_{ji}^{[l]}}
-$$
+> **W[l]_ji**
 
 where:
 
-- $l$ = destination/current layer
-- $i$ = neuron in the previous layer
-- $j$ = neuron in the current layer
+- `l` = destination/current layer
+- `i` = neuron in the previous layer
+- `j` = neuron in the current layer
 
 Therefore:
 
-$$
-W_{ji}^{[l]}
-$$
+```
+W[l]_ji
+```
 
 means:
 
-> weight connecting neuron $i$ in layer $l-1$ to neuron $j$ in layer $l$.
+> weight connecting neuron `i` in layer `l-1` to neuron `j` in layer `l`.
 
 ### Example
 
-$$
-W_{21}^{[2]}
-$$
+```
+W[2]_21
+```
 
 means:
 
-- destination layer = $L_2$
-- source neuron = neuron 1 of $L_1$
-- destination neuron = neuron 2 of $L_2$
+- destination layer = L2
+- source neuron = neuron 1 of L1
+- destination neuron = neuron 2 of L2
 
 In words:
 
@@ -460,26 +413,21 @@ In words:
 
 Different books and instructors sometimes use notation such as:
 
-$$
-W_{ij}^{[l]}
-$$
+```
+W[l]_ij
+```
 
 instead of:
 
-$$
-W_{ji}^{[l]}
-$$
+```
+W[l]_ji
+```
 
 The symbols are less important than the **definition being used consistently**.
 
 For these notes, we use:
 
-$$
-\boxed{W_{ji}^{[l]}
-=
-\text{weight from previous-layer neuron }i
-\text{ to current-layer neuron }j}
-$$
+> **W[l]_ji = weight from previous-layer neuron `i` to current-layer neuron `j`**
 
 Always check the convention used in your lecture or textbook.
 
@@ -489,29 +437,21 @@ Always check the convention used in your lecture or textbook.
 
 Instead of treating every weight separately, neural networks store the weights of a layer in a matrix.
 
-For layer $l$:
+For layer `l`:
 
-$$
-\boxed{
-W^{[l]} \in \mathbb{R}^{n_l \times n_{l-1}}
-}
-$$
+> **W[l] ∈ R^(n_l × n_(l-1))**
 
 and:
 
-$$
-\boxed{
-b^{[l]} \in \mathbb{R}^{n_l \times 1}
-}
-$$
+> **b[l] ∈ R^(n_l × 1)**
 
 ---
 
 ## Layer 1
 
-$$
-W^{[1]} \in \mathbb{R}^{3\times4}
-$$
+```
+W[1] ∈ R^(3×4)
+```
 
 because:
 
@@ -520,55 +460,55 @@ because:
 
 Total entries:
 
-$$
-3\times4=12
-$$
+```
+3 × 4 = 12
+```
 
 Bias:
 
-$$
-b^{[1]} \in \mathbb{R}^{3\times1}
-$$
+```
+b[1] ∈ R^(3×1)
+```
 
 ---
 
 ## Layer 2
 
-$$
-W^{[2]} \in \mathbb{R}^{2\times3}
-$$
+```
+W[2] ∈ R^(2×3)
+```
 
 Total weights:
 
-$$
-2\times3=6
-$$
+```
+2 × 3 = 6
+```
 
 Bias:
 
-$$
-b^{[2]} \in \mathbb{R}^{2\times1}
-$$
+```
+b[2] ∈ R^(2×1)
+```
 
 ---
 
 ## Output layer
 
-$$
-W^{[3]} \in \mathbb{R}^{1\times2}
-$$
+```
+W[3] ∈ R^(1×2)
+```
 
 Total weights:
 
-$$
-1\times2=2
-$$
+```
+1 × 2 = 2
+```
 
 Bias:
 
-$$
-b^{[3]} \in \mathbb{R}^{1\times1}
-$$
+```
+b[3] ∈ R^(1×1)
+```
 
 ---
 
@@ -576,29 +516,17 @@ $$
 
 For each layer:
 
-$$
-\boxed{
-z^{[l]}
-=
-W^{[l]}a^{[l-1]}+b^{[l]}
-}
-$$
+> **z[l] = W[l]·a[l-1] + b[l]**
 
 Then an activation function is applied:
 
-$$
-\boxed{
-a^{[l]}
-=
-g^{[l]}(z^{[l]})
-}
-$$
+> **a[l] = g[l](z[l])**
 
 For the input layer:
 
-$$
-a^{[0]}=x
-$$
+```
+a[0] = x
+```
 
 So the complete flow is:
 
@@ -622,25 +550,17 @@ a[3] = ŷ
 
 # 15. One neuron equation
 
-For neuron $j$ in layer $l$:
+For neuron `j` in layer `l`:
 
-$$
-z_j^{[l]}
-=
-\sum_i
-W_{ji}^{[l]}
-a_i^{[l-1]}
-+
-b_j^{[l]}
-$$
+```
+z[l]_j = Σᵢ ( W[l]_ji × a[l-1]_i ) + b[l]_j
+```
 
 Then:
 
-$$
-a_j^{[l]}
-=
-g(z_j^{[l]})
-$$
+```
+a[l]_j = g(z[l]_j)
+```
 
 This equation explains exactly why the indices matter.
 
@@ -658,27 +578,15 @@ The first neuron receives all four input features.
 
 Its linear combination is:
 
-$$
-z_1^{[1]}
-=
-W_{11}^{[1]}x_1
-+
-W_{12}^{[1]}x_2
-+
-W_{13}^{[1]}x_3
-+
-W_{14}^{[1]}x_4
-+
-b_1^{[1]}
-$$
+```
+z[1]_1 = W[1]_11·x1 + W[1]_12·x2 + W[1]_13·x3 + W[1]_14·x4 + b[1]_1
+```
 
 Then:
 
-$$
-a_1^{[1]}
-=
-g(z_1^{[1]})
-$$
+```
+a[1]_1 = g(z[1]_1)
+```
 
 The same process happens for neurons 2 and 3.
 
@@ -690,33 +598,33 @@ Common activation functions include:
 
 ### ReLU
 
-$$
-g(z)=\max(0,z)
-$$
+```
+g(z) = max(0, z)
+```
 
 Frequently used in hidden layers.
 
 ### Sigmoid
 
-$$
-g(z)=\frac{1}{1+e^{-z}}
-$$
+```
+g(z) = 1 / (1 + e^(-z))
+```
 
 Often used for binary classification output.
 
 ### Tanh
 
-$$
-g(z)=\tanh(z)
-$$
+```
+g(z) = tanh(z)
+```
 
-Outputs values between $-1$ and $1$.
+Outputs values between -1 and 1.
 
 ### Linear
 
-$$
-g(z)=z
-$$
+```
+g(z) = z
+```
 
 Often used in the output layer for regression.
 
@@ -726,17 +634,17 @@ Often used in the output layer for regression.
 
 During backpropagation, we are interested in quantities such as:
 
-$$
-\frac{\partial L}{\partial W^{[l]}}
-$$
+```
+∂L / ∂W[l]
+```
 
 and:
 
-$$
-\frac{\partial L}{\partial b^{[l]}}
-$$
+```
+∂L / ∂b[l]
+```
 
-where $L$ is the loss.
+where `L` is the loss.
 
 These tell us:
 
@@ -744,29 +652,16 @@ These tell us:
 
 The optimizer then performs an update such as:
 
-$$
-W^{[l]}
-\leftarrow
-W^{[l]}
--
-\alpha
-\frac{\partial L}{\partial W^{[l]}}
-$$
-
-$$
-b^{[l]}
-\leftarrow
-b^{[l]}
--
-\alpha
-\frac{\partial L}{\partial b^{[l]}}
-$$
+```
+W[l] ← W[l] − α · (∂L / ∂W[l])
+b[l] ← b[l] − α · (∂L / ∂b[l])
+```
 
 where:
 
-$$
-\alpha=\text{learning rate}
-$$
+```
+α = learning rate
+```
 
 ---
 
@@ -780,32 +675,15 @@ n0 → n1 → n2 → ... → nL
 
 The total trainable parameters are:
 
-$$
-\boxed{
-\sum_{l=1}^{L}
-\left(
-n_{l-1}n_l+n_l
-\right)
-}
-$$
+> **Σ (from l=1 to L) of ( n_(l-1)·n_l + n_l )**
 
 ### For 4 → 3 → 2 → 1
 
-$$
-(4\times3+3)
-+
-(3\times2+2)
-+
-(2\times1+1)
-$$
-
-$$
-=15+8+3
-$$
-
-$$
-=\boxed{26}
-$$
+```
+(4×3 + 3) + (3×2 + 2) + (2×1 + 1)
+= 15 + 8 + 3
+= 26
+```
 
 ---
 
@@ -813,21 +691,21 @@ $$
 
 | Symbol | Meaning |
 |---|---|
-| $m$ | Number of samples / rows |
-| $n$ | Number of input features |
-| $x_i$ | $i^{th}$ training sample |
-| $x_{ij}$ | Feature $j$ of sample $i$ |
-| $L_l$ | Layer $l$ |
-| $n_l$ | Number of neurons in layer $l$ |
-| $W^{[l]}$ | Weight matrix of layer $l$ |
-| $W_{ji}^{[l]}$ | Weight from previous neuron $i$ to current neuron $j$ |
-| $b_j^{[l]}$ | Bias of neuron $j$ in layer $l$ |
-| $z_j^{[l]}$ | Linear/pre-activation value |
-| $a_j^{[l]}$ | Output/activation of neuron $j$ |
-| $g$ | Activation function |
-| $\hat y$ | Predicted output |
-| $L$ | Loss / cost context-dependent; also sometimes total layer count, so define it clearly |
-| $\alpha$ | Learning rate |
+| `m` | Number of samples / rows |
+| `n` | Number of input features |
+| `x_i` | i-th training sample |
+| `x_ij` | Feature j of sample i |
+| `L_l` | Layer l |
+| `n_l` | Number of neurons in layer l |
+| `W[l]` | Weight matrix of layer l |
+| `W[l]_ji` | Weight from previous neuron i to current neuron j |
+| `b[l]_j` | Bias of neuron j in layer l |
+| `z[l]_j` | Linear/pre-activation value |
+| `a[l]_j` | Output/activation of neuron j |
+| `g` | Activation function |
+| `ŷ` | Predicted output |
+| `L` | Loss / cost (context-dependent; also sometimes total layer count, so define it clearly) |
+| `α` | Learning rate |
 
 ---
 
@@ -835,61 +713,33 @@ $$
 
 - The **input layer has no trainable weights of its own**; weights belong to the connections leading into the next layer.
 - Every neuron in a standard dense layer usually has **one bias**.
-- If a layer has $p$ incoming nodes and $q$ neurons:
+- If a layer has `p` incoming nodes and `q` neurons:
 
-$$
-\boxed{\text{weights}=p\times q}
-$$
+```
+weights = p × q
+biases  = q
+```
 
-$$
-\boxed{\text{biases}=q}
-$$
+- For the architecture 4 → 3 → 2 → 1:
 
-- For the architecture $4\to3\to2\to1$:
-
-$$
-\boxed{20\text{ weights}+6\text{ biases}=26\text{ trainable parameters}}
-$$
+> **20 weights + 6 biases = 26 trainable parameters**
 
 - Standard notation used here:
 
-$$
-\boxed{
-W_{ji}^{[l]}
-}
-$$
-
-means the weight from neuron $i$ in layer $l-1$ to neuron $j$ in layer $l$.
+> **W[l]_ji** — the weight from neuron `i` in layer `l-1` to neuron `j` in layer `l`.
 
 - Bias:
 
-$$
-\boxed{
-b_j^{[l]}
-}
-$$
+> **b[l]_j**
 
 - Neuron activation/output:
 
-$$
-\boxed{
-a_j^{[l]}
-}
-$$
+> **a[l]_j**
 
 - Forward propagation:
 
-$$
-\boxed{
-z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}
-}
-$$
-
-$$
-\boxed{
-a^{[l]}=g(z^{[l]})
-}
-$$
+> **z[l] = W[l]·a[l-1] + b[l]**
+> **a[l] = g(z[l])**
 
 - Backpropagation computes gradients for these trainable parameters so that an optimizer can update them.
 
