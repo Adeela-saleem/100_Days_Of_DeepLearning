@@ -25,6 +25,8 @@ output = 0   if z < 0
 
 Other commonly used activation functions include **tanh**, **ReLU**, etc.
 
+![Perceptron architecture: inputs, weights, weighted sum, activation function, output](images/perceptron-architecture.png)
+
 During **training**, the model learns from the training data and calculates the optimal `w1, w2, b`. These learned values are exactly what's required at **prediction** time — once trained, the perceptron uses them to classify new inputs.
 
 ## Biological Inspiration
@@ -38,6 +40,8 @@ Deep Learning is inspired by the nervous system. A single perceptron is loosely 
 | Axon produces output | Output |
 
 It's not an exact replica — real neurons are far more complex — but the inspiration holds. In the perceptron, **weights** represent connection strength: a higher weight means that input is more important; a weight near zero means it barely matters.
+
+![Biological neuron vs. perceptron: dendrites → inputs, nucleus → linear function (z), axon → activation function output](images/neuron-vs-perceptron.png)
 
 ## Geometric Intuition
 
@@ -78,6 +82,8 @@ plot_decision_regions(X.values, y.values, clf=p, legend=2)
 ```
 
 The scatter plot visualizes the data, and `plot_decision_regions` draws the learned decision boundary (the line discussed above) that separates placed vs. not-placed students based on `cgpa` and `resume_score`.
+
+![Decision boundary output: perceptron separating class 0 and class 1 with a straight line](images/decision-boundary-output.png)
 
 ## Files
 
