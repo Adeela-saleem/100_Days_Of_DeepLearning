@@ -105,4 +105,4 @@ a⁽³⁾ = σ(W⁽³⁾ · a⁽²⁾ + b⁽³⁾)   ← ye hi final prediction 
 2. Chahe architecture kitna bhi complex ho, underlying operation hamesha same rehta hai — **matrix multiplication + bias addition + activation function**.
 3. Weights training se pehle **random values** se initialize hote hain.
 
-![Complete Summary (3-Layer MLP, 4-3-2-1)]("forward_prop_complete_diagram.png")
+![Forward Propagation Complete — architecture, notation, parameters, step-by-step layers, chain view](forward_prop_complete_diagram.png)
